@@ -69,8 +69,8 @@ python app.py runserver
 Take a quick look at the interface and features of the **Data Visualizer Tool**:
 
 <p align="center">
-  <img src="./1.png" alt="Upload Page" width="30%" />
-  <img src="./2.png" alt="Graph Selection Page" width="30%" />
+  <img src="./1.png" alt="Upload Page" width="30%" /><br>
+  <img src="./2.png" alt="Graph Selection Page" width="30%" /><br>
   <img src="./3.png" alt="Visualization Output" width="30%" />
 </p>
 
