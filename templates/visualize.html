@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Visualizations</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("{% static 'images/bg4.webp' %}") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .glass-container {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      margin: 40px auto;
+      width: 95%;
+      max-width: 1200px;
+      color: white;
+      position: relative;
+    }
+
+    .graph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .graph-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .graph-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .logout-btn {
+      background-color: #dc3545;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 15px;
+      text-decoration: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .logout-btn:hover {
+      background-color: #bb2d3b;
+      transform: scale(1.05);
+    }
+
+    h2 {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  color: #ffc107;
+  font-size: 2rem;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
+
+.back-btn:hover {
+  transform: scale(1.15);
+  color: #ffda6a;
+}
+  </style>
+</head>
+<body>
+  <!-- Back Button -->
+<a href="#" onclick="confirmBack()" class="back-btn" title="Go Back">
+  <i class="bi bi-arrow-left-circle-fill"></i>
+</a>
+  <div class="glass-container">
+    <!-- Logout Button -->
+    <a href="/logout" class="logout-btn">
+      <i class="bi bi-box-arrow-right"></i> Logout
+    </a>
+
+    <h2 class="center"><i class="bi bi-bar-chart-line-fill"></i> Data Visualizations</h2>
+
+    <!-- Display Generated Graphs -->
+    <div class="graph-grid">
+      {% for graph in graphs %}
+        <img src="{{ graph }}" alt="Graph">
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+  function confirmBack() {
+    if (confirm("Are you sure you want to go back? Unsaved changes may be lost.")) {
+      // Redirect accordingly
+      const currentPath = window.location.pathname;
+      if (currentPath.includes("visualize")) {
+        window.location.href = "/upload/";
+      } else if (currentPath.includes("upload")) {
+        window.location.href = "/";
+      }
+    }
+  }
+
+  // Prevent browser back button
+  history.pushState(null, null, location.href);
+  window.onpopstate = function () {
+    history.go(1);
+  };
+</script>
+</body>
+</html>
