@@ -64,12 +64,15 @@ pip install -r requirements.txt
 ```bash
 python app.py runserver
 ```
-## 🎬 Preview Video (Local)
+## 🖼️ Preview Screenshots
 
-> 📽 Click below to download or play the preview video:
+Take a quick look at the interface and features of the **Data Visualizer Tool**:
 
-[![Preview Video](./assets/video-thumbnail.png)](./assets/preview.mp4)
-
+<p align="center">
+  <img src="./1.png" alt="Upload Page" width="30%" />
+  <img src="./2.png" alt="Graph Selection Page" width="30%" />
+  <img src="./3.png" alt="Visualization Output" width="30%" />
+</p>
 
 ## 👨‍💻 Author
 **Sachin Bharadvaj**  
