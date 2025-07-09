@@ -36,7 +36,6 @@
 | Backend      | Python, Django                           |
 | Database     | MongoDB (via PyMongo)                    |
 | Data Tools   | Pandas, Seaborn, Matplotlib, Scikit-learn|
-| Hosting      | Compatible with Render, Railway, Heroku  |
 
 ---
 
